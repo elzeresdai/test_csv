@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('data_csv', function (Blueprint $table) {
+        Schema::create('data_rules', function (Blueprint $table) {
             $table->id();
-            $table->integer('start_range');
-            $table->integer('end_range');
-            $table->integer('length');
-            $table->integer('description');
-            $table->integer('record_type');
+            $table->string('description')->unique();
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_csv');
+        Schema::dropIfExists('data_rules');
     }
 };

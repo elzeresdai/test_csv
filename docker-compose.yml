@@ -8,7 +8,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: app
-    container_name: testcsv-app
+    container_name: app
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
@@ -21,10 +21,10 @@ services:
     container_name: test_nginx
     restart: unless-stopped
     ports:
-      - 8000:80
+      - 8080:80
     volumes:
-      - ./:/var/www
-      - ./docker/nginx:/etc/nginx/conf.d/
+      - ./:/var/www/html
+      - ./docker/nginx/testcsv.conf:/etc/nginx/conf.d/testcsv.conf
     networks:
       - app_network
 

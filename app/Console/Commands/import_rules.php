@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class import_file extends Command
+class import_rules extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'import:file {file_path} {id}';
+    protected $signature = 'import:rules';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command for download data from file, expect parameters: file_path and id ';
+    protected $description = 'Command for importing rules to database';
 
     /**
      * Execute the console command.
@@ -27,13 +27,7 @@ class import_file extends Command
      */
     public function handle()
     {
-        $filePath = $this->argument('file_path');
-        $recordId = $this->argument("id");
-        $fileContents = \Illuminate\Support\Facades\File::lines($filePath);
-        dd($fileContents);
-
         
-
         return Command::SUCCESS;
     }
 }
