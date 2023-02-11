@@ -36,3 +36,7 @@ RUN chmod 755 /var/www/html
 WORKDIR /var/www/html
 
 USER $user
+
+# Expose port 9000 and start php-fpm server
+EXPOSE 9000
+CMD ["php-fpm"]
